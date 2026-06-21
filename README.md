@@ -2,14 +2,14 @@
 
 A modern, responsive web-based calculator that mirrors robust low-level arithmetic logic. This project demonstrates a clean separation of concerns, pairing a polished frontend UI with an optimized backend control flow logic.
 
-## Features 
+## Features  
 
 * **Dual-Layer Architecture:** Interactive web user interface powered by core C structural logic.
 * **Full Arithmetic Suite:** Supports Addition, Subtraction, Multiplication, Division, and Modulo.
 * **Edge-Case Validation:** Prevents application runtime crashes with explicit zero-divisor validation (`if-else` guards inside `switch-case` blocks).
 * **Modern UI/UX:** A sleek, smartphone-inspired dark-mode theme featuring responsive layouts and smooth button animations.
 
----
+-----
 
 ## Repository Structure
 
@@ -19,7 +19,7 @@ A modern, responsive web-based calculator that mirrors robust low-level arithmet
 * `script.js`: The frontend interface logic handling DOM updates and input streaming.
 * `.gitignore`: Built-in rule list preventing compiled binaries (`.exe`, `.out`) or IDE configurations from cluttering the repo.
 
----
+-----
 
 ## How to Run the Project Local Interfaces 
 
