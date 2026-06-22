@@ -98,6 +98,12 @@ body {
     border-radius: 30px;
 }
 
+.btn.placeholder {
+    background: transparent;
+    box-shadow: none;
+    pointer-events: none;
+}
+
 .btn.equals:hover {
     background: #249d41;
 }
