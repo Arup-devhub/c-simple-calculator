@@ -1,11 +1,16 @@
 let currentInput = "";
 let previousInput = "";
 let selectedChoice = null;
+let justCalculated = false;
 
 const resultDisplay = document.getElementById("result");
 const historyDisplay = document.getElementById("history");
 
 function appendNumber(num) {
+    if (justCalculated) {
+        currentInput = "";
+        justCalculated = false;
+    }
     if (currentInput === "0") currentInput = "";
     currentInput += num.toString();
     updateDisplay();
@@ -16,6 +21,7 @@ function setOperator(choice) {
     selectedChoice = choice;
     previousInput = currentInput;
     currentInput = "";
+    justCalculated = false;
     
     const operators = { 1: "+", 2: "-", 3: "×", 4: "÷", 5: "%" };
     historyDisplay.innerText = `${previousInput} ${operators[choice]}`;
@@ -26,6 +32,7 @@ function clearDisplay() {
     currentInput = "";
     previousInput = "";
     selectedChoice = null;
+    justCalculated = false;
     resultDisplay.innerText = "0";
     historyDisplay.innerText = "0";
 }
@@ -80,4 +87,5 @@ function calculate() {
     currentInput = output.toString();
     previousInput = "";
     selectedChoice = null;
+    justCalculated = true;
 }
