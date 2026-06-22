@@ -42,7 +42,6 @@ int main()
 		}
 		break;
 	case 5:
-
 		printf("the value is %d \n", a % b);
 		break;
 	default:
