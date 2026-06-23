@@ -8,6 +8,7 @@ int main()
 
 	printf("enter the value of the 1st number 'a'\n");
 	scanf("%d", &a);
+	
 	printf("enter the value of the 2nd number 'b'\n");
 	scanf("%d", &b);
 	printf("what do you want to do \n");
