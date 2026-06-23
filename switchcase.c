@@ -11,6 +11,7 @@ int main()
 	
 	printf("enter the value of the 2nd number 'b'\n");
 	scanf("%d", &b);
+	
 	printf("what do you want to do \n");
 	printf("1.addition \n");
 	printf("2.substraction \n");
