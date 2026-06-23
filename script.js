@@ -1,30 +1,39 @@
 let currentInput = "";
 let previousInput = "";
 let selectedChoice = null;
-let justCalculated = false;
 
 const resultDisplay = document.getElementById("result");
 const historyDisplay = document.getElementById("history");
 
 function appendNumber(num) {
-    if (justCalculated) {
-        currentInput = "";
-        justCalculated = false;
+    if (currentInput === "0") {
+        currentInput = num.toString();
+    } else {
+        currentInput += num.toString();
     }
-    if (currentInput === "0") currentInput = "";
-    currentInput += num.toString();
     updateDisplay();
 }
 
 function setOperator(choice) {
-    if (currentInput === "") return;
+    if (currentInput === "" || currentInput === "0") return;
     selectedChoice = choice;
     previousInput = currentInput;
     currentInput = "";
-    justCalculated = false;
     
     const operators = { 1: "+", 2: "-", 3: "×", 4: "÷", 5: "%" };
     historyDisplay.innerText = `${previousInput} ${operators[choice]}`;
+    updateDisplay();
+}
+
+function deleteLastDigit() {
+    if (currentInput === "0" || currentInput === "") return;
+
+    currentInput = currentInput.slice(0, -1);
+    
+    if (currentInput === "") {
+        currentInput = "0";
+    }
+    
     updateDisplay();
 }
 
@@ -32,7 +41,6 @@ function clearDisplay() {
     currentInput = "";
     previousInput = "";
     selectedChoice = null;
-    justCalculated = false;
     resultDisplay.innerText = "0";
     historyDisplay.innerText = "0";
 }
@@ -41,9 +49,9 @@ function updateDisplay() {
     resultDisplay.innerText = currentInput || "0";
 }
 
-// This mirrors your switchcase.c backend logic perfectly
+// Backend Simulation Logic (Mirroring switchcase.c architecture)
 function calculate() {
-    if (!previousInput || !currentInput || !selectedChoice) return;
+    if (!previousInput || currentInput === "" || !selectedChoice) return;
 
     let a = parseInt(previousInput);
     let b = parseInt(currentInput);
@@ -87,5 +95,4 @@ function calculate() {
     currentInput = output.toString();
     previousInput = "";
     selectedChoice = null;
-    justCalculated = true;
 }
